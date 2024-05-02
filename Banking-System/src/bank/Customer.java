@@ -55,4 +55,15 @@ public class Customer {
     public void setAccountId(int accountId) {
         this.accountId = accountId;
     }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", accountId=" + accountId +
+                '}';
+    }
 }
