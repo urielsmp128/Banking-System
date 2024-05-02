@@ -50,10 +50,20 @@ public class DataSource {
         return  account;
     }
 
-    public static void main(String[] args) {
-        Customer customer = getCustomer("agrzelewskimt@intel.com");
-        Account account = getAccount(10557);
-        System.out.println(customer);
-        System.out.println(account);
+    public static  void updateAccountBalance(int accountId, double newBalance){
+        String sql = "update accounts set balance = ? where id = ?";
+
+        try (Connection connection = connect();
+
+             PreparedStatement preparedStatement =  connection.prepareStatement(sql)){
+
+            preparedStatement.setDouble(1, newBalance);
+            preparedStatement.setInt(2, accountId);
+
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
