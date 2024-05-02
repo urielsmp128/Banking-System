@@ -56,6 +56,17 @@ public class Account {
         }
     }
 
-    public void withdraw(double amountToBeWithdrawed) {
+    public void withdraw(double amountToBeWithdrawed) throws AmountException {
+
+        if(amountToBeWithdrawed < 0){
+            throw new AmountException("The minimum deposit amount is $1");
+        } else if (amountToBeWithdrawed > balance) {
+            throw new AmountException("You do not have enough funds to withdrawal");
+        } else {
+            double newBalance = balance - amountToBeWithdrawed;
+            setBalance(newBalance);
+            DataSource.updateAccountBalance(id, newBalance);
+        }
+
     }
 }
