@@ -43,4 +43,10 @@ public class Account {
                 ", balance=" + balance +
                 '}';
     }
+
+    public void deposit(double amount) {
+    }
+
+    public void withdraw(double amountToBeWithdrawed) {
+    }
 }
