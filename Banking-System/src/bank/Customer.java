@@ -7,13 +7,15 @@ public class Customer {
     private  String username;
     private  String password;
     private int accountId;
+    private boolean authenticated;
 
-    public Customer(int id, String name, String username, String password, int accountId){
+    public Customer(int id, String name, String username, String password, int accountId, boolean authenticated){
         this.id = id;
         this.name = name;
         this.username = username;
         this.password = password;
         this.accountId = accountId;
+        this.authenticated = false;
     }
 
     public int getId() {
@@ -56,6 +58,14 @@ public class Customer {
         this.accountId = accountId;
     }
 
+    public boolean isAuthenticated() {
+        return authenticated;
+    }
+
+    public void setAuthenticated(boolean authenticated) {
+        this.authenticated = authenticated;
+    }
+
     @Override
     public String toString() {
         return "Customer{" +
@@ -64,6 +74,7 @@ public class Customer {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", accountId=" + accountId +
+                ", authenticated=" + authenticated +
                 '}';
     }
 }

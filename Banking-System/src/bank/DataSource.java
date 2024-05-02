@@ -26,7 +26,7 @@ public class DataSource {
                 preparedStatement.setString(1, username);
                 try(ResultSet resultSet = preparedStatement.executeQuery()){
                     customer = new Customer(resultSet.getInt("Id"), resultSet.getString("name"),
-                            resultSet.getString("username"), resultSet.getString("password"), resultSet.getInt("account_id"));
+                            resultSet.getString("username"), resultSet.getString("password"), resultSet.getInt("account_id"), false);
                 }
         } catch (SQLException e) {
             throw new RuntimeException(e);
